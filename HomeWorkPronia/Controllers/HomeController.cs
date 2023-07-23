@@ -1,4 +1,5 @@
 ﻿using HomeWorkPronia.Contexts;
+using HomeWorkPronia.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeWorkPronia.Controllers
@@ -13,7 +14,11 @@ namespace HomeWorkPronia.Controllers
         public IActionResult Index()
         {
             var cards = _context.Cards;
-            return View(cards);
+            var sliders = _context.Sliders;
+            HomeViewModel homeviewmodel = new HomeViewModel();
+            homeviewmodel.Cards = cards;
+            homeviewmodel.Sliders = sliders;
+            return View(homeviewmodel);
         }
     }
 }
