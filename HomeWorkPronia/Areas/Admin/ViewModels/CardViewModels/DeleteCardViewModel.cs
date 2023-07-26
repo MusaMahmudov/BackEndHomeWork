@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HomeWorkPronia.Models
+namespace HomeWorkPronia.Areas.Admin.ViewModels.CardViewModels
 {
-    public class Card
+    public class DeleteCardViewModel
     {
-        public int Id { get; set; }
         public string Image { get; set; }
         [Required, MaxLength(100)]
 
@@ -12,7 +11,5 @@ namespace HomeWorkPronia.Models
         [Required, MaxLength(300)]
 
         public string Description { get; set; }
-        public bool IsDeleted { get; set; }
-
     }
 }

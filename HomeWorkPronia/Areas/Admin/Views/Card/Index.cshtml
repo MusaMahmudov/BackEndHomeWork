@@ -10,7 +10,11 @@
                     <h4 class="card-title">Slider</h4>
 
                     <div class="table-responsive">
-                        <a class="btn btn-primary" asp-action="create">Create</a>
+                        @if(!(Model.Count() == 3))
+                        {
+                            <a class="btn btn-primary" asp-action="create">Create</a>
+
+                        }
                         <table class="table">
                             <thead>
                                 <tr>
@@ -28,7 +32,7 @@
                                         <td>@card.Title</td>
                                         <td>@card.Description</td>
                                         <td><a class="btn btn-primary" asp-action="Detail" asp-route-id="@card.Id">Detail</a></td>
-                                        <td><a class="btn btn-warning" asp-action="Update">Update</a></td>
+                                        <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@card.Id">Update</a></td>
                                         <td><a class="btn btn-danger" asp-action="Delete" asp-route-id="@card.Id">Delete</a></td>
 
                                     </tr>
