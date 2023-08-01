@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using HomeWorkPronia.Models.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace HomeWorkPronia.Models
 {
-    public class Card
+    public class Card : BaseEntity
     {
-        public int Id { get; set; }
         public string Image { get; set; }
         [Required, MaxLength(100)]
 

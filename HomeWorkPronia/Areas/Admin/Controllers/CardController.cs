@@ -1,6 +1,9 @@
 ﻿using HomeWorkPronia.Areas.Admin.ViewModels.CardViewModels;
 using HomeWorkPronia.Contexts;
+using HomeWorkPronia.Exceptions;
 using HomeWorkPronia.Models;
+using HomeWorkPronia.Services.Interfaces;
+using HomeWorkPronia.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -12,8 +15,10 @@ namespace HomeWorkPronia.Areas.Admin.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public CardController(AppDbContext context,IWebHostEnvironment webHostEnvironment)
+        private readonly IFileService _fileService;
+        public CardController(AppDbContext context,IWebHostEnvironment webHostEnvironment,IFileService fileService)
         {
+            _fileService = fileService;
             _webHostEnvironment = webHostEnvironment;
             _context = context;
         }
@@ -52,29 +57,50 @@ namespace HomeWorkPronia.Areas.Admin.Controllers
             if (!ModelState.IsValid)
                 return View();
 
-            if (!createCardViewModel.Image.ContentType.Contains("image/"))
+
+            //if(!createCardViewModel.Image.CheckFileType("image/"))
+            //{
+            //    ModelState.AddModelError("Image", "shekil daxil ele");
+            //    return View();
+            //}
+            //if (!createCardViewModel.Image.CheckFileSize(1000))
+            //{
+            //    ModelState.AddModelError("Image", "cox yer tutur");
+            //    return View();
+            //}
+
+            //string filename = $"{Guid.NewGuid}-{createCardViewModel.Image.FileName}";
+            //string path = Path.Combine(_webHostEnvironment.WebRootPath,"assets","images","website-images",filename);
+
+            //using (FileStream fileStream = new FileStream(path, FileMode.Create))
+            //{
+            //    await createCardViewModel.Image.CopyToAsync(fileStream);
+
+            //}
+            string fileName = string.Empty;
+            try
             {
-                ModelState.AddModelError("Image","shekil daxil ele");
+                 fileName = await _fileService.CreateFileAsync(createCardViewModel.Image, Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", "website-images"));
+
+            }
+            catch(FileTypeException ex)
+            {
+                ModelState.AddModelError("Image", "shekil daxil ele");
                 return View();
             }
-            if(createCardViewModel.Image.Length / 1024 > 100)
+            catch(FileSizeException ex) 
             {
                 ModelState.AddModelError("Image", "cox yer tutur");
                 return View();
             }
-
-            string filename = $"{Guid.NewGuid}-{createCardViewModel.Image.FileName}";
-            string path = Path.Combine(_webHostEnvironment.WebRootPath,"assets","images","website-images",filename);
-
-            using (FileStream fileStream = new FileStream(path, FileMode.Create))
+            catch 
+            (Exception ex) 
             {
-                await createCardViewModel.Image.CopyToAsync(fileStream);
-
+                throw new Exception(ex.Message);
             }
-
             Card card = new Card
             {
-               Image = filename,
+               Image = fileName,
                Title = createCardViewModel.Title,
                Description = createCardViewModel.Description,
 
@@ -90,6 +116,8 @@ namespace HomeWorkPronia.Areas.Admin.Controllers
                
 
         }
+
+      
 
         public async Task<IActionResult> Delete(int id)
         {
@@ -124,14 +152,15 @@ namespace HomeWorkPronia.Areas.Admin.Controllers
             if (card == null) { return NotFound(); };
 
             string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", "website-images", card.Image);
-            if(System.IO.File.Exists(path))
-            {
-                System.IO.File.Delete(path);
-            }
+            _fileService.DeleteFile(path);
+            //if(System.IO.File.Exists(path))
+            //{
+            //    System.IO.File.Delete(path);
+            //}
 
 
             card.IsDeleted = true;
-            _context.SaveChanges();
+         await  _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
 
@@ -140,7 +169,6 @@ namespace HomeWorkPronia.Areas.Admin.Controllers
         {
             var card = await _context.Cards.FirstOrDefaultAsync(s => s.Id == Id);
             if(card == null) { return NotFound(); };
-
            
             UpdateCardViewModel updateCardViewModel = new UpdateCardViewModel
             {
@@ -159,28 +187,44 @@ namespace HomeWorkPronia.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
                 return View();
+
+
             var card =await _context.Cards.FirstOrDefaultAsync(s=>s.Id == id);
             if (card == null) { return NotFound();}
 
-            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", "website-images", card.Image);
-
-            using (FileStream fileStream = new FileStream(path, FileMode.Create))
+            if(updateCardViewModel.Image is not null)
             {
-                if(updateCardViewModel.Image != null) 
+                try
                 {
-                    await updateCardViewModel.Image.CopyToAsync(fileStream);
+                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", "website-images", card.Image);
+                    _fileService.DeleteFile(path);
+                    string fileName = await _fileService.CreateFileAsync(updateCardViewModel.Image, Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", "website-images"));
+                    card.Image = fileName;
                 }
-                
-            }
+                catch (FileTypeException ex)
+                {
+                    ModelState.AddModelError("Image", "shekil daxil ele");
+                    return View();
+                }
+                catch (FileSizeException ex)
+                {
+                    ModelState.AddModelError("Image", "cox yer tutur");
+                    return View();
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("Image", $"{ex.Message}");
+                    return View();
+                }
 
+
+
+            }
 
             card.Title = updateCardViewModel.Title;
             card.Description = updateCardViewModel.Description;
-            if(updateCardViewModel.Image != null)
-            {
-                card.Image = updateCardViewModel.Image.FileName;
 
-            }
+
 
             _context.Cards.Update(card);
             await _context.SaveChangesAsync();

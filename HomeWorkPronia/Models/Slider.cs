@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using HomeWorkPronia.Models.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace HomeWorkPronia.Models
 {
-    public class Slider
+    public class Slider : BaseEntity
     {
-        public int Id { get; set; }
+       
         [Required,MaxLength(100)]
         public string Suptitle { get; set; }
         [Required, MaxLength(150)]

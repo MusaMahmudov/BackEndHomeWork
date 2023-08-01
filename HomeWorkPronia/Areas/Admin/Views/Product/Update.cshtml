@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+}
+
+@model UpdateProductViewModel
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Slider</h4>
+
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputUsername1">Image</label>
+                    <input asp-for="Image" class="form-control" placeholder="Image">
+                    <span asp-validation-for="Image"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                    <input asp-for="Description" class="form-control" placeholder="Description">
+                    <span asp-validation-for="Description"></span>
+
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Rating</label>
+                    <input asp-for="Rating" class="form-control" placeholder="Rating">
+                    <span asp-validation-for="Rating"></span>
+
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Name">
+                    <span asp-validation-for="Name"></span>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Price</label>
+                    <input asp-for="Price" class="form-control" placeholder="Price">
+                    <span asp-validation-for="Price"></span>
+
+                </div>
+                <div class="form-group">
+                    <label for="CategoryId">Categories</label>
+                    <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control" id="CategoryId">
+                    </select>
+                </div>
+
+
+                <button type="submit" asp-action="Update" class="btn btn-primary mr-2">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
