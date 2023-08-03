@@ -156,16 +156,16 @@ namespace HomeWorkPronia.Areas.Admin.Controllers
 
             if (product is null)
                 return NotFound();
-
+            string FileName = product.Name;
             try
             {
                 if(updateProductViewModel.Image is not null)
                 {
-                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", "website-images",updateProductViewModel.Image.FileName);
+                    string path = Path.Combine(_webHostEnvironment.WebRootPath,"assets","images","website-images",product.Image);
 
                     _fileService.DeleteFile(path);
-                    product.Image =await _fileService.CreateFileAsync(updateProductViewModel.Image,Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", "website-images"));
-                    product = _mapper.Map<Product>(updateProductViewModel);
+                    FileName = await _fileService.CreateFileAsync(updateProductViewModel.Image, Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", "website-images"));
+                    product.Image = FileName;
 
                 }
 
@@ -182,17 +182,9 @@ namespace HomeWorkPronia.Areas.Admin.Controllers
                 return View();
 
             }
-            if (updateProductViewModel.Image is null)
-            {
-                Product NewProduct = _mapper.Map<Product>(updateProductViewModel);
-                product.Name = NewProduct.Name;
-                product.Description = NewProduct.Description;
-                product.CategoryId = NewProduct.CategoryId;
-                product.Rating = NewProduct.Rating;
-                product.Price = NewProduct.Price;
-                product.UpdateTime = NewProduct.UpdateTime;
-                product.UpdatedBy = NewProduct.UpdatedBy;
-            }
+              _mapper.Map(updateProductViewModel, product);
+            product.Image = FileName;
+
 
 
 
