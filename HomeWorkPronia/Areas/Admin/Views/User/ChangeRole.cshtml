@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "ChangeRole";
+}
+@using HomeWorkPronia.Areas.Admin.ViewModels.UserViewModels;
+
+@model UpdateUserViewModel
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Slider</h4>
+
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+            
+
+               
+                <div class="form-group">
+                    <label for="Id">Roles</label>
+                    <select asp-for="RoleId" asp-items="@ViewBag.Roles" class="form-control" id="RoleId">
+                    </select>
+                </div>
+
+
+                <button type="submit" asp-action="ChangeRole" class="btn btn-primary mr-2">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>

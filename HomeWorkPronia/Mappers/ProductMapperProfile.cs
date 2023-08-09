@@ -12,7 +12,6 @@ namespace HomeWorkPronia.Mappers
             CreateMap<CreateProductViewModel, Product>().ReverseMap();
             CreateMap<Product,DetailProductViewModel>().ReverseMap();
             CreateMap<Product, UpdateProductViewModel>().ForMember(x => x.Image, opt => opt.Ignore()).ReverseMap();
-            //CreateMap<UpdateProductViewModel,Product>().ForMember(x => x.Image, opt => opt.Ignore());
 
 
 

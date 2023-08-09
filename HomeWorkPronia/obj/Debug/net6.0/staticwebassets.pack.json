@@ -969,6 +969,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\website-images\\IMG_9209.jpg"
     },
     {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\c#2\\HomeWorkPronia\\HomeWorkPronia\\wwwroot\\assets\\images\\website-images\\b3a82bc5-7f77-42d1-bc69-8ef2537533fe-1-1-270x300.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\website-images\\b3a82bc5-7f77-42d1-bc69-8ef2537533fe-1-1-270x300.jpg"
+    },
+    {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\c#2\\HomeWorkPronia\\HomeWorkPronia\\wwwroot\\assets\\images\\website-images\\c800eb82-5e24-4e0e-b8a4-f86549bf1946-1-1-270x300.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\website-images\\c800eb82-5e24-4e0e-b8a4-f86549bf1946-1-1-270x300.jpg"
     },
@@ -1059,6 +1063,10 @@
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\c#2\\HomeWorkPronia\\HomeWorkPronia\\wwwroot\\assets\\js\\vendor\\modernizr-3.11.2.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\vendor\\modernizr-3.11.2.min.js"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\c#2\\HomeWorkPronia\\HomeWorkPronia\\wwwroot\\assets\\templates\\reset-password.html",
+      "PackagePath": "staticwebassets\\assets\\templates\\reset-password.html"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.HomeWorkPronia.Microsoft.AspNetCore.StaticWebAssets.props",

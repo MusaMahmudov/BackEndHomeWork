@@ -247,3 +247,16 @@ C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkProni
 C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\MailKit.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\MimeKit.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\System.Formats.Asn1.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\binch\OneDrive\Рабочий стол\c#2\HomeWorkPronia\HomeWorkPronia\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll

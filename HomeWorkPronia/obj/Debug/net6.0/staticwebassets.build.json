@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GmEOEH/NCvC/OHIXQ7d8Vo6houP13JY88A/O6XelTVw=",
+  "Hash": "t/huSX5SWn8B4e9ZZ7m0/Ex7XBAGHNGzT5uZ1qovbGk=",
   "Source": "HomeWorkPronia",
   "BasePath": "_content/HomeWorkPronia",
   "Mode": "Default",
@@ -4114,6 +4114,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\3.png"
     },
     {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\c#2\\HomeWorkPronia\\HomeWorkPronia\\wwwroot\\assets\\images\\website-images\\b3a82bc5-7f77-42d1-bc69-8ef2537533fe-1-1-270x300.jpg",
+      "SourceId": "HomeWorkPronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\c#2\\HomeWorkPronia\\HomeWorkPronia\\wwwroot\\",
+      "BasePath": "_content/HomeWorkPronia",
+      "RelativePath": "assets/images/website-images/b3a82bc5-7f77-42d1-bc69-8ef2537533fe-1-1-270x300.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\b3a82bc5-7f77-42d1-bc69-8ef2537533fe-1-1-270x300.jpg"
+    },
+    {
       "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\c#2\\HomeWorkPronia\\HomeWorkPronia\\wwwroot\\assets\\images\\website-images\\c800eb82-5e24-4e0e-b8a4-f86549bf1946-1-1-270x300.jpg",
       "SourceId": "HomeWorkPronia",
       "SourceType": "Discovered",
@@ -4520,6 +4537,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\vendor\\modernizr-3.11.2.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\c#2\\HomeWorkPronia\\HomeWorkPronia\\wwwroot\\assets\\templates\\reset-password.html",
+      "SourceId": "HomeWorkPronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\c#2\\HomeWorkPronia\\HomeWorkPronia\\wwwroot\\",
+      "BasePath": "_content/HomeWorkPronia",
+      "RelativePath": "assets/templates/reset-password.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\templates\\reset-password.html"
     }
   ]
 }

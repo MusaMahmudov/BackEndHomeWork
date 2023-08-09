@@ -5,6 +5,7 @@ using HomeWorkPronia.Exceptions;
 using HomeWorkPronia.Models;
 using HomeWorkPronia.Services.Implementations;
 using HomeWorkPronia.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace HomeWorkPronia.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
     public class ProductController : Controller
     {
         
@@ -26,6 +28,8 @@ namespace HomeWorkPronia.Areas.Admin.Controllers
             _fileService = fileService;
             _context = context;
         }
+        [AllowAnonymous]
+
         public async Task<IActionResult> Index()
         {
             var products =await _context.Products.AsNoTracking().ToListAsync();
